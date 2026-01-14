@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Toolbar container */
+.tiptap-toolbar {
+  @apply flex flex-wrap gap-2 p-2 bg-white border-b shadow-md sticky top-0 z-50;
+}
+
+/* Toolbar buttons */
+.tiptap-toolbar button {
+  @apply px-3 py-1 border rounded hover:bg-blue-200 transition;
+}
+
+.tiptap-toolbar button.active {
+  @apply bg-blue-300 font-semibold border-blue-500;
+}
+
+/* Editor container */
+.tiptap-editor {
+  @apply p-4 min-h-[300px] bg-white prose max-w-none border;
+}
+
+/* Editor content */
+.ProseMirror {
+  font-family: "Times New Roman", serif;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror p {
+  margin: 0 0 12px;
+}
