@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-export default function Editor() {
+interface EditorProps {
+  onUpdate?: () => void;
+}
+
+export default function Editor({ onUpdate }: EditorProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);
@@ -14,6 +18,9 @@ export default function Editor() {
     content: "<p>Start typing here…</p>",
     autofocus: true,
     immediatelyRender: false,
+    onUpdate: () => {
+      onUpdate?.();
+    },
   });
 
   if (!isClient || !editor) return null;
